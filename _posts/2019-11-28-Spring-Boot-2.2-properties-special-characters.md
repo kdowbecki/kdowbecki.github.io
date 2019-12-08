@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Spring Boot 2 properties with special characters"
-categories: Java Spring Boot
+title: "Spring Boot 2.2 properties with special characters"
+categories: SpringBoot
 ---
 
 I was trying to correctly identify Oracle JDBC Thin driver to the database in Spring Boot 2.2. Back in Spring Boot 1.5, 
