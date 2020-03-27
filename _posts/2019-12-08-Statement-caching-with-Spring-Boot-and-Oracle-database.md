@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Statement caching with Spring Boot and Oracle database"
-categories: SpringBoot Oracle
+categories: [Spring Boot, Oracle, Stack Overflow]
 ---
 
 This post is a continuation of [this Stack Overflow question](https://stackoverflow.com/questions/58855423/oracle-jdbc-optimization-enable-preparedstatement-caching-in-a-spring-boot-res/58994467#58994467)
