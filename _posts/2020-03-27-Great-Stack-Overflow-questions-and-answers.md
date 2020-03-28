@@ -9,7 +9,7 @@ Stack Overflow was launched over 11 years ago. Since then more than 19 million q
 my favourite questions. Each of them is answered in depth, providing a chance to learn something interesting.
 
 
-### Java
+# Java
 
 - [Does Java JIT cheat when running JDK code?](https://stackoverflow.com/q/45912510/1602555)
 
@@ -24,12 +24,12 @@ my favourite questions. Each of them is answered in depth, providing a chance to
 - [Parallel Infinite Java Streams run out of Memory](https://stackoverflow.com/q/60002462/1602555)
 
 
-### JavaScript
+# JavaScript
 
 - [Why does ++[[]][+[]]+[+[]] return the string “10”?](https://stackoverflow.com/q/7202157/1602555)
 
 
-### General
+# General
 
 - [Is floating point math broken?](https://stackoverflow.com/q/588004/1602555)
 
