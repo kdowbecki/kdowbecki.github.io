@@ -390,8 +390,13 @@ nav {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 89px;
+  height: 145px;
   background-color: $lightGray;
+}
+
+.safe-harbour {
+   font-style: italic;
+   color: $gray;
 }
 
 footer {
