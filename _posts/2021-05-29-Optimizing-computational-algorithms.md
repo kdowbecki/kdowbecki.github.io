@@ -6,7 +6,7 @@ katex: true
 ---
 
 When optimizing an algorithm it's often good to take a step back and think about the problem nature before jumping 
-straight to coding. Today I have seen following question asked on StackOverflow:
+straight to coding. Today I have seen following question asked on Stack Overflow:
 
 > I have a program that has two nested for loops and takes $$ O(n^2) $$ time. I want to know if there is such way 
 > to decrease the time of execution for it. Example:

@@ -13,7 +13,12 @@
 /* BASE RULES */
 /**************/
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/roboto-v27/Roboto-Regular.ttf) format('truetype');
+}
 
 html {
   font-size: 100%;
