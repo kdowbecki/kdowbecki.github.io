@@ -1,0 +1,11 @@
+---
+---
+
+/*
+ * Make the newline taller to make the equations with fractions look better
+ * See: https://github.com/KaTeX/KaTeX/issues/312#issuecomment-712646721
+ */
+.katex .katex-html>.newline {
+  display: block;
+  padding-bottom: 20px;
+}
