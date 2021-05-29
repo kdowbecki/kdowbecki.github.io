@@ -11,6 +11,18 @@
 
     <meta name="theme-color" content="#000000">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/favicon-32x32.png">
+
+    {% if page.katex %}
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/katex-v0.13.11/katex.min.css"/>
+    <script type="text/javascript" defer src="{{ site.baseurl }}/assets/katex-v0.13.11/katex.min.js"></script>
+    <script type="text/javascript" defer src="{{ site.baseurl }}/assets/katex-v0.13.11/contrib/auto-render.min.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {});
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/katex.css" />
+    {% endif %}
   </head>
 
   <body>
