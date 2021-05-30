@@ -6,7 +6,7 @@ categories: [Java]
 
 `java.util.WeakHashMap` can be used as in-memory cache, allowing keys to expire when they are 
 [weakly reachable](https://docs.oracle.com/javase/8/docs/api/java/lang/ref/package-summary.html#reachability).
-Unfortunately this class is not thread-safe. It's entirely possible that unsynchronized invocation 
+Unfortunately this class is not thread-safe. It's entirely possible that un-synchronized invocation 
 of the `WeakHashMap.get(Object)` method **will result in infinite busy waiting loop** starving all other threads.
 
 If we take a look at the `WeakHashMap.get(Object)` method source code, the culprit is the `while` loop: 
