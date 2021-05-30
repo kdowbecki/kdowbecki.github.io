@@ -17,8 +17,8 @@ Luckily, the same behaviour can be achieved just by using Spring Boot properties
 
 # Database server setup
 
-We need a Oracle database server. Since we don't need any special configuration we can use [Oracle Database 12c Enterprise Edition docker image](https://hub.docker.com/_/oracle-database-enterprise-edition).
-This can done with:
+We need an Oracle database server. Since we don't need any special configuration we can use [Oracle Database 12c Enterprise Edition docker image](https://hub.docker.com/_/oracle-database-enterprise-edition).
+This can be done with:
 
 ```text
 docker run -d -it --name oracle12c -p 1521:1521 store/oracle/database-enterprise:12.2.0.1
@@ -61,8 +61,8 @@ Next, `ojdbc8.jar` driver must be downloaded to match the database server versio
 [Oracle Database 12.2.0.1 JDBC Driver & UCP Downloads](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html)
 website. Once we have the JAR we can to add it as a runtime dependency.
 
-To execute a SQL query we can create a bean with `@Scheduled` method. Every 100ms a connection will be 
-obtained from the pool and the same SQL query will be executed using `PreparedStatement`. The actual SQL query used
+To execute new SQL query we can create a bean with `@Scheduled` method. Every 100ms a connection will be 
+obtained from the pool, and the same SQL query will be executed using `PreparedStatement`. The actual SQL query used
 makes no difference to us, we just need something running on the connection to see that it's cached:
 
 ```java
@@ -103,7 +103,7 @@ method is executed using multiple threads, so far so good:
 ```
 
 
-## By default there is no statement caching
+## There is no statement caching
 
 To observe this we should run the application and query the [V$SQLAREA view](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/V-SQLAREA.html#GUID-09D5169F-EE9E-4297-8E01-8D191D87BDF7) 
 which provides "statistics on SQL statements that are in memory, parsed, and ready for execution". We can focus on just
@@ -130,7 +130,7 @@ These two numbers are constantly increasing with time. They will always have the
 By design HikariCP doesn't implement a statement cache [as explained by the author](https://github.com/brettwooldridge/HikariCP/issues/488#issuecomment-154285114). 
 This functionality must be provided by the JDBC driver if we want to use it in our application. In our case `ojdbc8.jar` provides a configuration 
 **`oracle.jdbc.implicitStatementCacheSize` property** which defines the size of the internal LRU statement cache. By 
-default the value is 0, we need to set it to enable cache.
+default, the value is 0, we need to overwrite it to enable caching.
 
 This can be done with `application.yml` property, if we want to cache 100 statements:
 
@@ -142,13 +142,15 @@ spring:
         oracle.jdbc.implicitStatementCacheSize: 100
 ```
 
-Let's restart the database server and compare `PARSE_CALLS` with `EXECUTIONS` for our SQL query again. This time we get: 
+Let's restart the database server and compare `PARSE_CALLS` with `EXECUTIONS` values for our SQL query again. 
+This time we see: 
 
 ```text
 1	59
 ```
 
-and only the `EXECUTIONS` value is increasing with time. We have a working statement cache!
+Only the `EXECUTIONS` value is increasing with time while `PARSE_CALLS` doesn't change. We have a working statement 
+cache!
 
 
 ## Resources

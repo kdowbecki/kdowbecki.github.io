@@ -5,7 +5,7 @@ categories: [Algorithm]
 katex: true
 ---
 
-When optimizing an algorithm it's often good to take a step back and think about the problem nature before jumping 
+When optimizing an algorithm it's often good to take a step back and think about the problem domain before jumping 
 straight to coding. Today I have seen following question asked on Stack Overflow:
 
 > I have a program that has two nested for loops and takes $$ O(n^2) $$ time. I want to know if there is such way 
@@ -21,10 +21,10 @@ for (int k = 0; k < b; k++) {
 ```
 
 At first glance we immediately notice that in the above code variable `k` is added repeatedly. Perhaps we could 
-remember the `counter` value from the previous loop iteration? Perhaps we could create another variable... Here we 
-should take a step back. 
+remember the `counter` variable value from the previous loop iteration? Perhaps we could create another variable... 
+Here we should take a step back. 
 
-We should notice that the above code is just a mathematical equation. Let's write it down:
+We should notice that the code can be represented as a mathematical equation. Let's write it down:
 
 $$
 counter = \sum\limits_{k = 0}^{b-1} \sum\limits_{a = k}^{b-1} k

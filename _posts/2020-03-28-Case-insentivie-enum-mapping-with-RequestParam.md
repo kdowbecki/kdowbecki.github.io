@@ -30,7 +30,7 @@ public class ExampleEnumController {
 ```
 
 This will work as intended and return 200 response when `name` request parameter value is uppercase e.g. 
-`GET http://localhost:8080/enum?mame=FIRST`. However when `name` value is lowercase 
+`GET http://localhost:8080/enum?mame=FIRST`. However, when `name` value is lowercase 
 e.g. `GET http://localhost:8080/enum?mame=first` the code will return a 400 response:
 
 ```json
@@ -43,7 +43,7 @@ e.g. `GET http://localhost:8080/enum?mame=first` the code will return a 400 resp
 }
 ```
 
-# Custom case insensitive matching
+# Custom case-insensitive matching
 
 The default behaviour is caused by Spring utilizing `com.sun.beans.editors.EnumEditor` to map enum values mapped with
 `@RequestParam` annotation. To change this we have to declare our own editor.
@@ -87,7 +87,7 @@ public class CaseInsensitiveEnumEditor extends PropertyEditorSupport {
 }
 ```
 
-And register the new editor by using `@InitBinder`:
+Now we have to register the new editor with `@InitBinder`:
 
 ```java
 @RestController
