@@ -1,8 +1,8 @@
 # kdowbecki blog
 
-This repository hosts https://kdowbecki.github.io page.
+This repository hosts [kdowbecki.github.io](https://kdowbecki.github.io) page.
 
-Bulding and running locally:
+Building and running locally:
 
 ```
 $ bundle install
