@@ -96,7 +96,7 @@ public static void main(String[] args) {
     System.out.println("Worked");
 }
 
-private static long original(final long b) {
+private static long original(long b) {
     long counter = 0;
     for (int k = 0; k < b; k++) {
         for (int a = k; a < b; a++) {
@@ -106,7 +106,7 @@ private static long original(final long b) {
     return counter;
 }
 
-private static long fast(final long b) {
+private static long fast(long b) {
     return (b * b * b - b) / 6;
 }
 ```
@@ -124,6 +124,7 @@ Worked
 ```
 
 This new fast algorithm has a runtime complexity of just $$ O(1) $$ and great performance as it
-needs only 4 arithmetical operations. We should strive to improve the new algorithm further, taking care of 
-edge cases like integer overflow, but who knows, this could be the optimal solution for the problem. One way or 
-another, it's good to take a step back when dealing with algorithms.
+needs only 4 arithmetic operations. We should strive to improve this new algorithm further, taking care of 
+edge cases like integer overflow, but perhaps this is already the optimal solution for our problem. 
+
+One way or another, it's good to take a step back when dealing with algorithms.
