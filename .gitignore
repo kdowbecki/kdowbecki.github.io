@@ -11,4 +11,3 @@ package.json
 *.gemspec
 .jekyll-cache
 .idea
-*.iml
