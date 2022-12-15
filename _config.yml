@@ -98,3 +98,8 @@ exclude:
   - README.md
   - CNAME
 
+# Compress the html
+# See https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
