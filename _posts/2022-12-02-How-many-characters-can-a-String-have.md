@@ -73,17 +73,16 @@ if ((size_t)max_jint < max_elements_per_size_t) {
 return (int32_t)max_elements_per_size_t;
 ```
 
-I'm definitely not OpenJDK source code expert. After spending some time searching for answers it feels like 
-`MinObjAlignment` and other values in this method will depend on the CPU architecture. If so there won't 
-be just a single answer.
+After going through OpenJDK code it looks like `MinObjAlignment` and other values here will depend on the CPU 
+architecture. If so, there won't be just a single answer.
 
 On Linux x86_64 debugging with [`gdb`](https://sourceware.org/gdb/) shows that the expression 
-`align_down(max_jint - header_size(type), MinObjAlignment)` is executed and the method returns 2147483645, 
-which is `Integer.MAX_VALUE - 2`. Knowing that let's try to create the longest possible string again.
+`align_down(max_jint - header_size(type), MinObjAlignment)` is executed and the method returns 2147483645. 
+This value is equal to `Integer.MAX_VALUE - 2`. Let's try to create the longest possible string again:
 
 ```java
 String text = "a".repeat(Integer.MAX_VALUE - 2);
 ```
 
-This time it doesn't throw any errors confirming that for Java 17 running on Linux x86_64 a string can have up to
-`Integer.MAX_VALUE - 2` characters.
+This time the code doesn't throw any errors, confirming that for Java 17 running on Linux x86_64 a string can 
+have up to `Integer.MAX_VALUE - 2` characters.
